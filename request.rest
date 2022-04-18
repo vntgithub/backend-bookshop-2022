@@ -1,0 +1,25 @@
+POST http://localhost:3001/api/users/add 
+Content-Type: application/json
+
+{
+    "username": "dfhgdfhdfhdfh",
+    "password": "vntrieu123123",
+    "name": "Vo Nhat Trieu",
+    "urlimg": "String",
+    "address": "CT",
+    "phonenumber": "0123123123"
+}
+
+###
+POST http://localhost:3001/api/users/login 
+Content-Type: application/json
+
+{
+    "username": "dfhgdfhdfhdfh",
+    "password": "vntrieu123123"
+}
+
+###
+POST http://localhost:3001/api/users/loginbytoken
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVkODc4ZmEzY2U3MjVhZTUxN2NiZjQiLCJpYXQiOjE2NTAyOTc4OTUsImV4cCI6MTY1MDM4NDI5NX0.H6XAjhbg_837OromJ49dhkyS8kKQzQ5SZe1QDvszXrw
+
