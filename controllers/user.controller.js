@@ -1,26 +1,24 @@
 const md5 = require('md5');
 const User = require('../models/user.model');
 const jwt = require('jsonwebtoken');
-const fs = require('fs');
+const RefreshToken = require('../models/refreshtoken.model');
 
 module.exports = {
     login: async (req, res) => {
         const username = req.body.username;
         const password = md5(req.body.password);
         await User.findOne({ username: username, password: password })
-            .then(user => {
-                if (user) {
-                    const userInformation = { ...user['_doc'] };
-                    delete userInformation.password;
-                    const token = jwt.sign({
-                        userId: userInformation['_id']
-                    }, process.env.TOKEN_SECRET_KEY, { expiresIn: '1d' });
-                    res.json({
-                        userInformation,
-                        token,
-                    });
+            .then(row => {
+                if (row) {
+                    const user = { ...row['_doc'] }
+                    delete user.password
+
+                    const token = jwt.sign(user, process.env.TOKEN_SECRET_KEY, { expiresIn: '15s' })
+                    const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET_KEY)
+                    RefreshToken.create({ refreshToken, userId: user['_id'] })
+                    res.json({ user, token, refreshToken })
                 } else {
-                    res.json('User not found!');
+                    res.sendStatus(400).send('Username or password is wrong');
                 }
             })
 
@@ -55,14 +53,13 @@ module.exports = {
     add: async (req, res) => {
         const data = { ...req.body, password: md5(req.body.password) };
 
-        const newUser = new User(data);
-        await User.create(newUser)
+        await User.create(data)
             .then(user => {
                 let userData = { ...user["_doc"] }
                 delete userData.password
                 res.json(userData)
             })
-            .catch(err => consle.log(err));
+            .catch(err => res.sendStatus(400).send(err));
     },
     update: async (req, res) => {
         const dataUpdate = { ...req.body };

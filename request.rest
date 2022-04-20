@@ -2,10 +2,10 @@ POST http://localhost:3001/api/users/add
 Content-Type: application/json
 
 {
-    "username": "dfhgdfhdfhdfh",
-    "password": "vntrieu123123",
+    "username": "vntrieu123",
+    "password": "vntrieu123",
     "name": "Vo Nhat Trieu",
-    "urlimg": "String",
+    "urlimg": "https://res.cloudinary.com/vntrieu/image/upload/v1619606477/user/ugiyfkwlq1k86qvbxkz6.jpg",
     "address": "CT",
     "phonenumber": "0123123123"
 }
@@ -15,8 +15,8 @@ POST http://localhost:3001/api/users/login
 Content-Type: application/json
 
 {
-    "username": "dfhgdfhdfhdfh",
-    "password": "vntrieu123123"
+    "username": "vntrieu123",
+    "password": "vntrieu123"
 }
 
 ###
