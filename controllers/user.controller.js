@@ -1,65 +1,47 @@
 const md5 = require('md5');
 const User = require('../models/user.model');
 const jwt = require('jsonwebtoken');
-const RefreshToken = require('../models/refreshtoken.model');
+const RefreshToken = require('../models/refreshToken.model');
 
 module.exports = {
     login: async (req, res) => {
         const username = req.body.username;
         const password = md5(req.body.password);
-        await User.findOne({ username: username, password: password })
-            .then(row => {
-                if (row) {
-                    const user = { ...row['_doc'] }
-                    delete user.password
+        let user = await User.findOne({ username: username, password: password })
+        if (user) {
+            delete user.password
 
-                    const token = jwt.sign(user, process.env.TOKEN_SECRET_KEY, { expiresIn: '15s' })
-                    const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET_KEY)
-                    RefreshToken.create({ refreshToken, userId: user['_id'] })
-                    res.json({ user, token, refreshToken })
-                } else {
-                    res.sendStatus(400).send('Username or password is wrong');
-                }
-            })
+            const accessToken = jwt.sign({ userId: user["_id"] }, process.env.TOKEN_SECRET_KEY, { expiresIn: '1d' })
+            const refreshToken = jwt.sign({ userId: user["_id"] }, process.env.REFRESH_TOKEN_SECRET_KEY)
+            const doc = await RefreshToken.findOne({ userId: user["_id"], })
+            RefreshToken.create({ userId: user["_id"], refreshToken: refreshToken })
+
+            res.json({ user, accessToken, refreshToken })
+        } else {
+            res.status(400).send("Username or password is worng!")
+        }
 
     },
     loginByToken: async (req, res) => {
         const userId = req.user.userId;
-        await User.findById(userId)
-            .then(user => {
-                if (user) {
-                    const userInformation = { ...user['_doc'] };
-                    delete userInformation.password;
-                    res.json({
-                        userInformation
-                    });
-                } else {
-                    res.json('Token is wrong!');
-                }
-            })
+        user = await User.findById(userId)
+        if (user) {
+            delete user.password;
+            res.json({ user });
+        } else {
+            res.json('Token is wrong!');
+        }
     },
-
-    checkUsername: async (req, res) => {
-        const username = req.params.username;
-        await User.findOne({ username: username })
-            .then(user => {
-                if (user)
-                    res.json(false);
-                else
-                    res.json(true);
-            })
-            .catch(err => console.log(err))
-    },
-    add: async (req, res) => {
+    create: async (req, res) => {
         const data = { ...req.body, password: md5(req.body.password) };
 
-        await User.create(data)
-            .then(user => {
-                let userData = { ...user["_doc"] }
-                delete userData.password
-                res.json(userData)
-            })
-            .catch(err => res.sendStatus(400).send(err));
+        user = await User.create(data).catch(error => res.status(400).send("Username already exists"));
+
+        if (user) {
+            delete user.password
+            res.json(user)
+        }
+
     },
     update: async (req, res) => {
         const dataUpdate = { ...req.body };

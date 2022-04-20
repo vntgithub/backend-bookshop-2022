@@ -6,7 +6,6 @@ const checkToken = (req, res, next) => {
         jwt.verify(token, process.env.TOKEN_SECRET_KEY, (err, payload) => {
             if (payload) {
                 req.user = payload;
-                console.log('payload: ' + payload)
                 next();
             } else {
                 res.status(401).send('Unauthorized');

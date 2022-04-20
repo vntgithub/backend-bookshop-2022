@@ -8,10 +8,8 @@ router.post('/loginbytoken',
     authMiddleware.checkToken,
     authMiddleware.protectedRoute,
     userController.loginByToken);
-router.post('/add', userController.add);
-// router.put('/update', userController.update);
-
-router.get('/checkusername/:username', userController.checkUsername);
-// router.post('/getbyarrayid', userController.getNameCodeByArrId);
+router.post('/', userController.create);
+router.put('/', authMiddleware.checkToken, authMiddleware.protectedRoute, userController.update);
+// router.delete(/)
 
 module.exports = router;

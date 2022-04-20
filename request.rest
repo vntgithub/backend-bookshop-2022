@@ -1,4 +1,5 @@
-POST http://localhost:3001/api/users/add 
+#Sign up
+POST http://localhost:3001/api/users 
 Content-Type: application/json
 
 {
@@ -9,8 +10,21 @@ Content-Type: application/json
     "address": "CT",
     "phonenumber": "0123123123"
 }
-
 ###
+PUT http://localhost:3001/api/users 
+Content-Type: application/json
+Authorization: : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjVmOGZkODI1NzMyNDhkMzQ0NDQ5YjkiLCJ1c2VybmFtZSI6InZudHJpZXUxMjMiLCJuYW1lIjoiVm8gTmhhdCBUcmlldSIsInVybGltZyI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3ZudHJpZXUvaW1hZ2UvdXBsb2FkL3YxNjE5NjA2NDc3L3VzZXIvdWdpeWZrd2xxMWs4NnF2YnhrejYuanBnIiwiYWRkcmVzcyI6IkNUIiwicGhvbmVudW1iZXIiOiIwMTIzMTIzMTIzIiwiX192IjowLCJpYXQiOjE2NTA0NjE0NTMsImV4cCI6MTY1MDQ2MTQ2OH0.K3uwCDzavrmLlIXUZcfc8kmnWoh5D1BGBqt0xNyNl0c
+
+{
+    "username": "vntrieu123",
+    "password": "vntrieu123",
+    "name": "Vo Nhat Trieu",
+    "urlimg": "https://res.cloudinary.com/vntrieu/image/upload/v1619606477/user/ugiyfkwlq1k86qvbxkz6.jpg",
+    "address": "HG",
+    "phonenumber": "0123123123"
+}
+
+###Sign in
 POST http://localhost:3001/api/users/login 
 Content-Type: application/json
 
@@ -19,7 +33,20 @@ Content-Type: application/json
     "password": "vntrieu123"
 }
 
-###
+###Sign by token
 POST http://localhost:3001/api/users/loginbytoken
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVkODc4ZmEzY2U3MjVhZTUxN2NiZjQiLCJpYXQiOjE2NTAyOTc4OTUsImV4cCI6MTY1MDM4NDI5NX0.H6XAjhbg_837OromJ49dhkyS8kKQzQ5SZe1QDvszXrw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmOGZkODI1NzMyNDhkMzQ0NDQ5YjkiLCJpYXQiOjE2NTA0NjYxNzAsImV4cCI6MTY1MDU1MjU3MH0.rBISANTaUkVZOxGkLgfhVTiId8B-Jeh9-ijE86X-CWg
+###Get new token
+POST http://localhost:3001/api/tokens
+Content-Type: application/json
 
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmOGZkODI1NzMyNDhkMzQ0NDQ5YjkiLCJpYXQiOjE2NTA0NjU5Nzd9.u9lC2k7goozjBEghspP1zbcelMb-tw2Lq6oYBcqS6No"
+}
+###Logout
+DELETE http://localhost:3001/api/tokens
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmOGZkODI1NzMyNDhkMzQ0NDQ5YjkiLCJpYXQiOjE2NTA0NjY4NDF9.qdLP3VrpQAc3qjeG3GR5idT06wCuIQhFepzKDdhfP58"
+}
