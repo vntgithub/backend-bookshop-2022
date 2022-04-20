@@ -45,11 +45,13 @@ module.exports = {
     },
     update: async (req, res) => {
         const dataUpdate = { ...req.body };
-        const idUserNeedUpdate = dataUpdate['_id'];
-        delete dataUpdate['_id'];
-        await User.findByIdAndUpdate(idUserNeedUpdate, dataUpdate)
-            .then(() => res.json('Updated!'))
-            .catch(err => console.log(err));
+        const idUserNeedUpdate = req.params.id
+        let user = await User.findByIdAndUpdate(idUserNeedUpdate, dataUpdate, { new: true })
+            .catch(err => res.status(400).send("Somethings wrong!"));
+        if (user) {
+            delete user.password
+            res.json(user)
+        }
 
     },
     delete: async (req, res) => {

@@ -10,17 +10,17 @@ Content-Type: application/json
     "address": "CT",
     "phonenumber": "0123123123"
 }
-###
-PUT http://localhost:3001/api/users 
+###Update user data
+PATCH  http://localhost:3001/api/users/625f8fd82573248d344449b9
 Content-Type: application/json
-Authorization: : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjVmOGZkODI1NzMyNDhkMzQ0NDQ5YjkiLCJ1c2VybmFtZSI6InZudHJpZXUxMjMiLCJuYW1lIjoiVm8gTmhhdCBUcmlldSIsInVybGltZyI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3ZudHJpZXUvaW1hZ2UvdXBsb2FkL3YxNjE5NjA2NDc3L3VzZXIvdWdpeWZrd2xxMWs4NnF2YnhrejYuanBnIiwiYWRkcmVzcyI6IkNUIiwicGhvbmVudW1iZXIiOiIwMTIzMTIzMTIzIiwiX192IjowLCJpYXQiOjE2NTA0NjE0NTMsImV4cCI6MTY1MDQ2MTQ2OH0.K3uwCDzavrmLlIXUZcfc8kmnWoh5D1BGBqt0xNyNl0c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmOGZkODI1NzMyNDhkMzQ0NDQ5YjkiLCJpYXQiOjE2NTA0Njc3MjksImV4cCI6MTY1MDU1NDEyOX0.QRe3yX22JBxsQPJrrpDArd5j4L8Ps_CQXkKrwx-wapc
 
 {
     "username": "vntrieu123",
     "password": "vntrieu123",
     "name": "Vo Nhat Trieu",
     "urlimg": "https://res.cloudinary.com/vntrieu/image/upload/v1619606477/user/ugiyfkwlq1k86qvbxkz6.jpg",
-    "address": "HG",
+    "address": "thi xa Long My - Hau Giang",
     "phonenumber": "0123123123"
 }
 
@@ -48,5 +48,5 @@ DELETE http://localhost:3001/api/tokens
 Content-Type: application/json
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmOGZkODI1NzMyNDhkMzQ0NDQ5YjkiLCJpYXQiOjE2NTA0NjY4NDF9.qdLP3VrpQAc3qjeG3GR5idT06wCuIQhFepzKDdhfP58"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmOGZkODI1NzMyNDhkMzQ0NDQ5YjkiLCJpYXQiOjE2NTA0NjY4MjB9.u9RLZDjG1S2_NKGGVFj8i0bLxPohTE3utP8SvK8UrtE"
 }
