@@ -1,5 +1,6 @@
 const md5 = require('md5');
 const User = require('../models/user.model');
+const Admin = require('../models/admin.model')
 const jwt = require('jsonwebtoken');
 const RefreshToken = require('../models/refreshToken.model');
 
@@ -44,8 +45,11 @@ module.exports = {
 
     },
     update: async (req, res) => {
-        const dataUpdate = { ...req.body };
         const idUserNeedUpdate = req.params.id
+        const userId = req.user.userId
+        if (idUserNeedUpdate != userId) res.status(403).send("Forbidden")
+        const dataUpdate = { ...req.body };
+
         let user = await User.findByIdAndUpdate(idUserNeedUpdate, dataUpdate, { new: true })
             .catch(err => res.status(400).send("Somethings wrong!"));
         if (user) {
@@ -54,10 +58,19 @@ module.exports = {
         }
 
     },
+    getUsers: async (req, res) => {
+        const { page } = req.query
+        const users = await User.find({})
+            .skip(page * 15)
+            .limit(15)
+        res.json(users)
+    },
     delete: async (req, res) => {
-        const idUserNeedDelete = req.params.id;
-        await Student.findByIdAndDelete(idUserNeedDelete)
-            .then(() => res.json("Deleted!"))
-            .catch(err => console.log(err))
+        const userId = req.params.id
+        const user = await User.findByIdAndDelete(userId)
+        if (user)
+            res.json("Deleted!")
+        else
+            res.status(400).send("User not found")
     }
 }

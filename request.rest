@@ -1,3 +1,4 @@
+###################### User route ###############################
 #Sign up
 POST http://localhost:3001/api/users 
 Content-Type: application/json
@@ -24,6 +25,20 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmO
     "phonenumber": "0123123123"
 }
 
+###Update another user's data
+PATCH  http://localhost:3001/api/users/625f910cc66d899132906824
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmOGZkODI1NzMyNDhkMzQ0NDQ5YjkiLCJpYXQiOjE2NTA0Njc3MjksImV4cCI6MTY1MDU1NDEyOX0.QRe3yX22JBxsQPJrrpDArd5j4L8Ps_CQXkKrwx-wapc
+
+{
+    "username": "vntrieu123",
+    "password": "vntrieu123",
+    "name": "Vo Nhat Trieu",
+    "urlimg": "https://res.cloudinary.com/vntrieu/image/upload/v1619606477/user/ugiyfkwlq1k86qvbxkz6.jpg",
+    "address": "thi xa Long My - Hau Giang",
+    "phonenumber": "0123123123"
+}
+
 ###Sign in
 POST http://localhost:3001/api/users/login 
 Content-Type: application/json
@@ -36,6 +51,7 @@ Content-Type: application/json
 ###Sign by token
 POST http://localhost:3001/api/users/loginbytoken
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmOGZkODI1NzMyNDhkMzQ0NDQ5YjkiLCJpYXQiOjE2NTA0NjYxNzAsImV4cCI6MTY1MDU1MjU3MH0.rBISANTaUkVZOxGkLgfhVTiId8B-Jeh9-ijE86X-CWg
+
 ###Get new token
 POST http://localhost:3001/api/tokens
 Content-Type: application/json
@@ -50,3 +66,25 @@ Content-Type: application/json
 {
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmOGZkODI1NzMyNDhkMzQ0NDQ5YjkiLCJpYXQiOjE2NTA0NjY4MjB9.u9RLZDjG1S2_NKGGVFj8i0bLxPohTE3utP8SvK8UrtE"
 }
+
+###################### Admin route ###############################
+### Admin login
+POST http://localhost:3001/api/admins/login 
+Content-Type: application/json
+
+{
+    "username": "admin123",
+    "password": "admin123!@#"
+}
+
+###Admin login by token
+POST http://localhost:3001/api/admins/loginByToken
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYxMDI4MzcxN2EzOTdmMmM5OWYxMDgiLCJpYXQiOjE2NTA1MjYyOTMsImV4cCI6MTY1MDYxMjY5M30.Lx4tARXi9OnXso2eqa5H5NlbKHk_WaPmM3iwirGPKy8
+
+###Get users
+GET http://localhost:3001/api/users?page=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYxMDI4MzcxN2EzOTdmMmM5OWYxMDgiLCJpYXQiOjE2NTA1MjYyOTMsImV4cCI6MTY1MDYxMjY5M30.Lx4tARXi9OnXso2eqa5H5NlbKHk_WaPmM3iwirGPKy8
+
+###Delete user
+DELETE http://localhost:3001/api/users/625f8fd82573248d344449b9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYxMDI4MzcxN2EzOTdmMmM5OWYxMDgiLCJpYXQiOjE2NTA1MjYyOTMsImV4cCI6MTY1MDYxMjY5M30.Lx4tARXi9OnXso2eqa5H5NlbKHk_WaPmM3iwirGPKy8

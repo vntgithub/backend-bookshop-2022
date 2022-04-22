@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken');
 const checkToken = (req, res, next) => {
     try {
         const token = req.headers.authorization.split(' ')[1];
-        console.log('token: ' + token)
         jwt.verify(token, process.env.TOKEN_SECRET_KEY, (err, payload) => {
             if (payload) {
                 req.user = payload;

@@ -4,7 +4,8 @@ const Schema = mongoose.Schema
 const adminSchema = new Schema({
     username: String,
     password: String,
-    urlImg: String
+    img: String
 })
 
-const Admin = mongose.model('Admin', adminSchema, 'admins')
+const Admin = mongoose.model('Admin', adminSchema, 'admins')
+module.exports = Admin;
