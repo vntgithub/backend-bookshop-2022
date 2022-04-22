@@ -125,5 +125,63 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYxM
 
 {
     "name": "New book UPDATE 2adsgsdg"
-    
+}
+
+###create invoice
+POST http://localhost:3001/api/invoices
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYyYmMyZmM0YjViMDMzZDFjYzgxMTgiLCJpYXQiOjE2NTA2NDAwNjksImV4cCI6MTY1MDcyNjQ2OX0.6bV2l2FBXMb2turn4tHecHJ7OJ3Ti6QZC0uomrKHgnI
+
+{
+    "name": "Nguyen Truc Ngan",
+    "phonenumber": "012313123",
+    "address": "Vinh Long",
+    "date": "2022-04-22",
+    "cart": [
+        {
+            "count": 2,
+            "book": {
+                "_id": "6262c6473f66821dd221475b",
+                "name": "New book",
+                "author": "Cixin Liu",
+                "price": 16.11,
+                "urlimg": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7849/9781784971618.jpg"
+            }
+        },
+        {
+            "count": 1,
+            "book": {
+                "_id": "6262c6473f66821dd221475b",
+                "name": "New book",
+                "author": "Cixin Liu",
+                "price": 16.11,
+                "urlimg": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/7849/9781784971618.jpg"
+            }
+        }
+
+    ],
+    "totalamount": 48.33
+}
+
+### create invoice invalid data
+POST http://localhost:3001/api/invoices
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYyYmMyZmM0YjViMDMzZDFjYzgxMTgiLCJpYXQiOjE2NTA2NDAwNjksImV4cCI6MTY1MDcyNjQ2OX0.6bV2l2FBXMb2turn4tHecHJ7OJ3Ti6QZC0uomrKHgnI
+
+{
+    "name": "Nguyen Truc Ngan",
+    "phonenumber": "012313123",
+    "address": "Vinh Long",
+    "date": "2022-04-22",
+    "cart": [],
+    "totalamount": 0
+}
+
+###admin set state invoice
+PATCH  http://localhost:3001/api/invoices/6262c5e03f66821dd2214758
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYxMDI4MzcxN2EzOTdmMmM5OWYxMDgiLCJpYXQiOjE2NTA2MzYxNTEsImV4cCI6MTY1MDcyMjU1MX0.MJjqQOkJoCJZ-P6CL5IN63P2ByO1FPL5jveO_4h5GhE
+
+{
+    "state": "Cancel"
 }
