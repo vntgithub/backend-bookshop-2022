@@ -88,3 +88,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYxM
 ###Delete user
 DELETE http://localhost:3001/api/users/625f8fd82573248d344449b9
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYxMDI4MzcxN2EzOTdmMmM5OWYxMDgiLCJpYXQiOjE2NTA1MjYyOTMsImV4cCI6MTY1MDYxMjY5M30.Lx4tARXi9OnXso2eqa5H5NlbKHk_WaPmM3iwirGPKy8
+
+###Get books
+GET http://localhost:3001/api/books?search=a

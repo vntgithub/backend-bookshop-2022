@@ -38,13 +38,14 @@ module.exports = {
     getBooks: async (req, res) => {
         const page = req.query.page
         const search = req.query.search
-        let searchObject
+        const category = req.query.category
+        pattern = {}
         if (search)
-            searchObject = { $regex: new RegExp(".*" + search.toLowerCase() + ".*", "i") }
-        else
-            searchObject = true
-        const category = req.query.category || true
-        const books = await Book.find({ name: searchObject, category: category })
+            pattern.name = { $regex: new RegExp(".*" + search.toLowerCase() + ".*", "i") }
+        if (category) pattern.category = category
+
+
+        const books = await Book.find(pattern)
             .skip(page * 20)
             .limit(20)
         res.json(books)
