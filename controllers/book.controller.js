@@ -6,7 +6,7 @@ module.exports = {
         adminId = req.user.userId
         const admin = await Admin.findById(adminId)
         if (admin) {
-            const book = await Book.create({ ...req.body.book })
+            const book = await Book.create({ ...req.body })
                 .catch(err => res.status(400).send({ err: err }))
             res.json({ book: book })
         } else {
@@ -17,7 +17,7 @@ module.exports = {
         adminId = req.user.userId
         const admin = await Admin.findById(adminId)
         if (admin) {
-            const book = await Book.findByIdAndUpdate(req.query.id, { ...req.body.book }, { new: true })
+            const book = await Book.findByIdAndUpdate(req.params.id, { ...req.body }, { new: true })
                 .catch(err => res.status(400).send({ err: err }))
             res.json({ book: book })
         } else {
