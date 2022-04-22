@@ -12,31 +12,16 @@ module.exports = {
 
             res.json(invoice)
         }
-
-
     },
     updateForAdmin: async (req, res) => {
-        const adminId = req.user.userId
-        const admin = await Admin.findById(adminId)
-        if (admin) {
-            const invoiceId = req.params.id
-            const invoiceAfterUpdate = await Invoice.findByIdAndUpdate(invoiceId, req.body, { new: true })
-                .catch(err => res.status(400).send(err))
-            res.json(invoiceAfterUpdate)
-        } else {
-            res.status(401).send("Unauthorized")
-        }
+        const invoiceId = req.params.id
+        const invoiceAfterUpdate = await Invoice.findByIdAndUpdate(invoiceId, req.body, { new: true })
+            .catch(err => res.status(400).send(err))
+        res.json(invoiceAfterUpdate)
     },
-    updateForUser: async (req, res) => {
-        const adminId = req.user.userId
-        const admin = await Admin.findById(adminId)
-        if (admin) {
-            const invoiceId = req.params.id
-            const invoiceAfterUpdate = await Invoice.findByIdAndUpdate(invoiceId, req.body, { new: true })
-                .catch(err => res.status(400).send(err))
-            res.json(invoiceAfterUpdate)
-        } else {
-            res.status(401).send("Unauthorized")
-        }
+    cancelInvoice: async (req, res) => {
+        const invoiceAfterUpdate = await Invoice.findByIdAndUpdate(req.params.id, { state: "Cancel" }, { new: true })
+            .catch(err => res.status(400).send(err))
+        res.json(invoiceAfterUpdate)
     },
 }

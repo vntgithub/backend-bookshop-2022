@@ -20,5 +20,11 @@ const protectedRoute = (req, res, next) => {
     }
     res.status(401).send('Unauthorized');
 }
-const authMiddleware = { checkToken, protectedRoute }
+const protectedRouteAdmin = (req, res, next) => {
+    if (req.user.adminId) {
+        return next();
+    }
+    res.status(401).send('Unauthorized');
+}
+const authMiddleware = { checkToken, protectedRoute, protectedRouteAdmin }
 module.exports = authMiddleware;

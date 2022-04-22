@@ -3,37 +3,19 @@ const Admin = require('../models/admin.model')
 
 module.exports = {
     create: async (req, res) => {
-        adminId = req.user.userId
-        const admin = await Admin.findById(adminId)
-        if (admin) {
-            const book = await Book.create({ ...req.body })
-                .catch(err => res.status(400).send({ err: err }))
-            res.json({ book: book })
-        } else {
-            res.status(401).send("Unauthorized")
-        }
+        const book = await Book.create({ ...req.body })
+            .catch(err => res.status(400).send({ err: err }))
+        res.json({ book: book })
     },
     update: async (req, res) => {
-        adminId = req.user.userId
-        const admin = await Admin.findById(adminId)
-        if (admin) {
-            const book = await Book.findByIdAndUpdate(req.params.id, { ...req.body }, { new: true })
-                .catch(err => res.status(400).send({ err: err }))
-            res.json({ book: book })
-        } else {
-            res.status(401).send("Unauthorized")
-        }
+        const book = await Book.findByIdAndUpdate(req.params.id, { ...req.body }, { new: true })
+            .catch(err => res.status(400).send({ err: err }))
+        res.json({ book: book })
     },
     delete: async (req, res) => {
-        adminId = req.user.userId
-        const admin = await Admin.findById(adminId)
-        if (admin) {
-            Book.findByIdAndDelete(req.query.id)
-                .catch(err => res.status(400).send({ err: err }))
-            res.json("Deleted")
-        } else {
-            res.status(401).send("Unauthorized")
-        }
+        Book.findByIdAndDelete(req.query.id)
+            .catch(err => res.status(400).send({ err: err }))
+        res.json("Deleted")
     },
     getBooks: async (req, res) => {
         const page = req.query.page

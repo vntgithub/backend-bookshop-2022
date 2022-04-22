@@ -10,8 +10,8 @@ router.post('/loginbytoken',
     userController.loginByToken);
 router.post('/', userController.create);
 router.patch('/:id', authMiddleware.checkToken, authMiddleware.protectedRoute, userController.update);
-router.get('/', authMiddleware.checkToken, authMiddleware.protectedRoute, userController.getUsers)
-router.delete("/:id", authMiddleware.checkToken, authMiddleware.protectedRoute, userController.delete)
+router.get('/', authMiddleware.checkToken, authMiddleware.protectedRouteAdmin, userController.getUsers)
+router.delete("/:id", authMiddleware.checkToken, authMiddleware.protectedRouteAdmin, userController.delete)
 
 
 module.exports = router;

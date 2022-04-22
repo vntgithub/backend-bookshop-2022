@@ -10,8 +10,8 @@ module.exports = {
         let admin = await Admin.findOne({ username: username, password: md5(password) })
         if (admin) {
             delete admin.password
-            accessToken = jwt.sign({ userId: admin["_id"] }, process.env.TOKEN_SECRET_KEY, { expiresIn: '1d' })
-            refreshToken = jwt.sign({ userId: admin["_id"] }, process.env.REFRESH_TOKEN_SECRET_KEY)
+            accessToken = jwt.sign({ adminId: admin["_id"] }, process.env.TOKEN_SECRET_KEY, { expiresIn: '1d' })
+            refreshToken = jwt.sign({ adminId: admin["_id"] }, process.env.REFRESH_TOKEN_SECRET_KEY)
             RefreshToken.create(refreshToken)
             res.json({ admin, accessToken, refreshToken })
         } else {
