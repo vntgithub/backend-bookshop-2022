@@ -18,7 +18,7 @@ module.exports = {
         res.json("Deleted")
     },
     getBooks: async (req, res) => {
-        const page = req.query.page
+        const page = req.query.page || 0
         const search = req.query.search
         const category = req.query.category
         pattern = {}
@@ -30,6 +30,8 @@ module.exports = {
         const books = await Book.find(pattern)
             .skip(page * 20)
             .limit(20)
-        res.json(books)
+
+        const count = await Book.countDocuments(pattern)
+        res.json({ books, count: Math.floor(count / 20) })
     }
 }

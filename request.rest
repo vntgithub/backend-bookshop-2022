@@ -4,10 +4,10 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-    "username": "vntrieu123",
-    "password": "vntrieu123",
+    "username": "vntrieu",
+    "password": "vntrieu",
     "name": "Vo Nhat Trieu",
-    "urlimg": "https://res.cloudinary.com/vntrieu/image/upload/v1619606477/user/ugiyfkwlq1k86qvbxkz6.jpg",
+    "img": "https://res.cloudinary.com/vntrieu/image/upload/v1619606477/user/ugiyfkwlq1k86qvbxkz6.jpg",
     "address": "CT",
     "phonenumber": "0123123123"
 }
@@ -17,10 +17,10 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmOGZkODI1NzMyNDhkMzQ0NDQ5YjkiLCJpYXQiOjE2NTA0Njc3MjksImV4cCI6MTY1MDU1NDEyOX0.QRe3yX22JBxsQPJrrpDArd5j4L8Ps_CQXkKrwx-wapc
 
 {
-    "username": "vntrieu123",
-    "password": "vntrieu123",
+    "username": "vntrieu",
+    "password": "vntrieu",
     "name": "Vo Nhat Trieu",
-    "urlimg": "https://res.cloudinary.com/vntrieu/image/upload/v1619606477/user/ugiyfkwlq1k86qvbxkz6.jpg",
+    "img": "https://res.cloudinary.com/vntrieu/image/upload/v1619606477/user/ugiyfkwlq1k86qvbxkz6.jpg",
     "address": "thi xa Long My - Hau Giang",
     "phonenumber": "0123123123"
 }
@@ -34,7 +34,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmO
     "username": "vntrieu123",
     "password": "vntrieu123",
     "name": "Vo Nhat Trieu",
-    "urlimg": "https://res.cloudinary.com/vntrieu/image/upload/v1619606477/user/ugiyfkwlq1k86qvbxkz6.jpg",
+    "img": "https://res.cloudinary.com/vntrieu/image/upload/v1619606477/user/ugiyfkwlq1k86qvbxkz6.jpg",
     "address": "thi xa Long My - Hau Giang",
     "phonenumber": "0123123123"
 }
@@ -44,20 +44,20 @@ POST http://localhost:3001/api/users/login
 Content-Type: application/json
 
 {
-    "username": "vntrieu123",
-    "password": "vntrieu123"
+    "username": "vntrieu",
+    "password": "vntrieu"
 }
 
 ###Sign by token
 POST http://localhost:3001/api/users/loginbytoken
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmOGZkODI1NzMyNDhkMzQ0NDQ5YjkiLCJpYXQiOjE2NTA0NjYxNzAsImV4cCI6MTY1MDU1MjU3MH0.rBISANTaUkVZOxGkLgfhVTiId8B-Jeh9-ijE86X-CWg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjY2NDA1MDNmMWY0MzI0N2MyNWRjZGMiLCJpYXQiOjE2NTA4NjgzMTcsImV4cCI6MTY1MDk1NDcxN30.HZcPvJ-cvCVSkVWn2aqfLHuvhnW_KVIUezfyphtR3QI
 
 ###Get new token
 POST http://localhost:3001/api/tokens
 Content-Type: application/json
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmOGZkODI1NzMyNDhkMzQ0NDQ5YjkiLCJpYXQiOjE2NTA0NjU5Nzd9.u9lC2k7goozjBEghspP1zbcelMb-tw2Lq6oYBcqS6No"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjI2MzI4OTI2NDc5ZDc4NThjYjNkMDU5IiwiaWF0IjoxNjUwNjY2NDc3fQ.tm744d6fXVe855-djplUv-A4GynYi0D2n7TpaNwVlcs"
 }
 ###Logout
 DELETE http://localhost:3001/api/tokens
@@ -73,8 +73,8 @@ POST http://localhost:3001/api/admins/login
 Content-Type: application/json
 
 {
-    "username": "admin123",
-    "password": "admin123!@#"
+    "username": "trucngan99",
+    "password": "trucngan99"
 }
 
 ###Admin login by token
@@ -89,7 +89,7 @@ DELETE http://localhost:3001/api/users/625f8fd82573248d344449b9
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYxMDI4MzcxN2EzOTdmMmM5OWYxMDgiLCJpYXQiOjE2NTA1MjYyOTMsImV4cCI6MTY1MDYxMjY5M30.Lx4tARXi9OnXso2eqa5H5NlbKHk_WaPmM3iwirGPKy8
 
 ###Get books
-GET http://localhost:3001/api/books?search=New book
+GET http://localhost:3001/api/books?search=Love
 
 ###Create book
 POST http://localhost:3001/api/books
@@ -165,7 +165,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYyY
 ### create invoice invalid data
 POST http://localhost:3001/api/invoices
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYyYmMyZmM0YjViMDMzZDFjYzgxMTgiLCJpYXQiOjE2NTA2NDAwNjksImV4cCI6MTY1MDcyNjQ2OX0.6bV2l2FBXMb2turn4tHecHJ7OJ3Ti6QZC0uomrKHgnI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjY2NDA1MDNmMWY0MzI0N2MyNWRjZGMiLCJpYXQiOjE2NTA4NjgzMTcsImV4cCI6MTY1MDk1NDcxN30.HZcPvJ-cvCVSkVWn2aqfLHuvhnW_KVIUezfyphtR3QI
+
 
 {
     "name": "Nguyen Truc Ngan",
@@ -184,3 +185,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYxM
 {
     "state": "Cancel"
 }
+
+###Get categories
+GET  http://localhost:3001/api/categories
+
+###get users invoices
+GET  http://localhost:3001/api/invoices
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjY2NDA1MDNmMWY0MzI0N2MyNWRjZGMiLCJpYXQiOjE2NTA4NjgzMTcsImV4cCI6MTY1MDk1NDcxN30.HZcPvJ-cvCVSkVWn2aqfLHuvhnW_KVIUezfyphtR3QI
+
+

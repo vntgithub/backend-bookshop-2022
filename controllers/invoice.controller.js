@@ -24,4 +24,11 @@ module.exports = {
             .catch(err => res.status(400).send(err))
         res.json(invoiceAfterUpdate)
     },
+    getUserInvoices: async (req, res) => {
+        const userId = req.user.userId
+        console.log(userId)
+
+        const invoices = await Invoice.find({ userId: userId })
+        res.json(invoices)
+    }
 }

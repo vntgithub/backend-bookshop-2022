@@ -17,7 +17,7 @@ module.exports = {
 
     },
     delete: async (req, res) => {
-        const doc = await RefreshToken.findOneAndDelete({ refreshToken: req.body.token })
+        await RefreshToken.findOneAndDelete({ refreshToken: req.body.token })
         res.status(204)
     }
 }
