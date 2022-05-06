@@ -50,7 +50,7 @@ Content-Type: application/json
 
 ###Sign by token
 POST http://localhost:3001/api/users/loginbytoken
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjY2NDA1MDNmMWY0MzI0N2MyNWRjZGMiLCJpYXQiOjE2NTEzMjc5NDYsImV4cCI6MTY1MTQxNDM0Nn0.h5qlMlHiNexza2weNlXp7aHbjGo18ahAi1AlfszKbB4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjI2MzI4OTI2NDc5ZDc4NThjYjNkMDU5IiwiaWF0IjoxNjUxODI0NTY3LCJleHAiOjE2NTE5MTA5Njd9.uVELjEOvHj_GAQeiQO_5DZNQg0eFD36FYgBmWe69eMk
 
 ###Get new token
 POST http://localhost:3001/api/tokens
@@ -79,7 +79,7 @@ Content-Type: application/json
 
 ###Admin login by token
 POST http://localhost:3001/api/admins/loginByToken
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYxMDI4MzcxN2EzOTdmMmM5OWYxMDgiLCJpYXQiOjE2NTA1MjYyOTMsImV4cCI6MTY1MDYxMjY5M30.Lx4tARXi9OnXso2eqa5H5NlbKHk_WaPmM3iwirGPKy8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkI…yMTd9.VUA-geEiPO2cyMOAdU5NKIvxWGApknMq2bB0SFcmGJ8
 
 ###Get users
 GET http://localhost:3001/api/users
