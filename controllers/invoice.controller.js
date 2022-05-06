@@ -3,7 +3,7 @@ const Admin = require('../models/admin.model')
 
 module.exports = {
     create: async (req, res) => {
-        const invoiceData = { ...req.body, date: Date.parse(req.body.date), state: "Waitting" }
+        const invoiceData = { ...req.body, date: Date.parse(req.body.date), state: "Waiting" }
         if (invoiceData.cart.length == 0)
             res.status(400).send("Cart is empty")
         else {
@@ -26,9 +26,8 @@ module.exports = {
     },
     getUserInvoices: async (req, res) => {
         const userId = req.user.userId
-        console.log(userId)
 
-        const invoices = await Invoice.find({ userId: userId })
+        const invoices = await Invoice.find({ userId: userId }).sort({ date: -1 })
         res.json(invoices)
     }
 }

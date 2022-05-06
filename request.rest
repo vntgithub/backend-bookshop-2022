@@ -50,14 +50,14 @@ Content-Type: application/json
 
 ###Sign by token
 POST http://localhost:3001/api/users/loginbytoken
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjY2NDA1MDNmMWY0MzI0N2MyNWRjZGMiLCJpYXQiOjE2NTA4NjgzMTcsImV4cCI6MTY1MDk1NDcxN30.HZcPvJ-cvCVSkVWn2aqfLHuvhnW_KVIUezfyphtR3QI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjY2NDA1MDNmMWY0MzI0N2MyNWRjZGMiLCJpYXQiOjE2NTEzMjc5NDYsImV4cCI6MTY1MTQxNDM0Nn0.h5qlMlHiNexza2weNlXp7aHbjGo18ahAi1AlfszKbB4
 
 ###Get new token
 POST http://localhost:3001/api/tokens
 Content-Type: application/json
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjI2MzI4OTI2NDc5ZDc4NThjYjNkMDU5IiwiaWF0IjoxNjUwNjY2NDc3fQ.tm744d6fXVe855-djplUv-A4GynYi0D2n7TpaNwVlcs"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjY2NDA1MDNmMWY0MzI0N2MyNWRjZGMiLCJpYXQiOjE2NTEzMjY5NTl9.RFNF6VkUnojL3kk7J3x9BES2ox2Oz13BXAdqUola3C8"
 }
 ###Logout
 DELETE http://localhost:3001/api/tokens
