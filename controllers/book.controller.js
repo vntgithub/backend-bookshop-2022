@@ -13,7 +13,7 @@ module.exports = {
         res.json({ book: book })
     },
     delete: async (req, res) => {
-        Book.findByIdAndDelete(req.query.id)
+        Book.findByIdAndDelete(req.params.id)
             .catch(err => res.status(400).send({ err: err }))
         res.json("Deleted")
     },
