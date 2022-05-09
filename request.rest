@@ -4,8 +4,8 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-    "username": "vntrieu",
-    "password": "vntrieu",
+    "username": "vntrieu4",
+    "password": "vntrieu4",
     "name": "Vo Nhat Trieu",
     "img": "https://res.cloudinary.com/vntrieu/image/upload/v1619606477/user/ugiyfkwlq1k86qvbxkz6.jpg",
     "address": "CT",
@@ -83,7 +83,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkI…yMTd9
 
 ###Get users
 GET http://localhost:3001/api/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjI2MTAyODM3MTdhMzk3ZjJjOTlmMTA4IiwiaWF0IjoxNjUwNjQ5Nzg0LCJleHAiOjE2NTA3MzYxODR9.sfgmLr7a2SqtUUblubQUsjTzsHlgfnFqbEX9zVrMETw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjI2MzI4OTI2NDc5ZDc4NThjYjNkMDU5IiwiaWF0IjoxNjUyMDc4ODY4LCJleHAiOjE2NTIxNjUyNjh9.AL57gO0i_rPNMYrLrorLtkTaptKmfnZoaLeK2Pqwf9c
 ###Delete user
 DELETE http://localhost:3001/api/users/625f8fd82573248d344449b9
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYxMDI4MzcxN2EzOTdmMmM5OWYxMDgiLCJpYXQiOjE2NTA1MjYyOTMsImV4cCI6MTY1MDYxMjY5M30.Lx4tARXi9OnXso2eqa5H5NlbKHk_WaPmM3iwirGPKy8
@@ -115,8 +115,8 @@ Content-Type: application/json
     "category": "Science Fiction"
 }
 ###Delete book
-DELETE http://localhost:3001/api/books/6262b6babbe7162a3e57ba82
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYxMDI4MzcxN2EzOTdmMmM5OWYxMDgiLCJpYXQiOjE2NTA2MzYxNTEsImV4cCI6MTY1MDcyMjU1MX0.MJjqQOkJoCJZ-P6CL5IN63P2ByO1FPL5jveO_4h5GhE
+DELETE http://localhost:3001/api/books/6277e3bcf3bad52a58d91892
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjI2MzI4OTI2NDc5ZDc4NThjYjNkMDU5IiwiaWF0IjoxNjUyMDI0MjI4LCJleHAiOjE2NTIxMTA2Mjh9.h79gmKKKQjdt96mhRim7CIgmaJKpb4PmoHbAHVw7WBs
 ###Update book
 PATCH  http://localhost:3001/api/books/6262b6e0bbe7162a3e57ba85
 Content-Type: application/json

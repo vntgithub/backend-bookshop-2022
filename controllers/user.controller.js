@@ -60,7 +60,9 @@ module.exports = {
         const users = await User.find({})
             .skip(page * 15)
             .limit(15)
-        res.json(users)
+
+        const count = await User.countDocuments()
+        res.json({ users, count: Math.floor(count / 15) })
     },
     delete: async (req, res) => {
         const userId = req.params.id
