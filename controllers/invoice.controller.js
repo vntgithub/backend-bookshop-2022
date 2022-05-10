@@ -29,5 +29,12 @@ module.exports = {
 
         const invoices = await Invoice.find({ userId: userId }).sort({ date: -1 })
         res.json(invoices)
+    },
+    getInvoices: async (req, res) => {
+        const page = req.query.page || 0
+        const invoices = await Invoice.find().sort({ date: -1 }).skip(page * 15)
+            .limit(15)
+        const count = await Invoice.countDocuments()
+        res.json({ invoices, count: Math.floor(count / 20) })
     }
 }

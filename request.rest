@@ -129,7 +129,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYxM
 ###create invoice
 POST http://localhost:3001/api/invoices
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYyYmMyZmM0YjViMDMzZDFjYzgxMTgiLCJpYXQiOjE2NTA2NDAwNjksImV4cCI6MTY1MDcyNjQ2OX0.6bV2l2FBXMb2turn4tHecHJ7OJ3Ti6QZC0uomrKHgnI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjY2NDA1MDNmMWY0MzI0N2MyNWRjZGMiLCJpYXQiOjE2NTIxNjYxMzgsImV4cCI6MTY1MjI1MjUzOH0.kHRsWKcHbkacIpzDTEfFoJ8aGQA7m6whdDjplsqC3EU
 
 {
     "name": "Nguyen Truc Ngan",
